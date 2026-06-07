@@ -1,0 +1,15 @@
+[tools]
+tinytex = "latest"
+perl = "latest"
+
+[tasks.tex-setup]
+description = "Install extra TeX packages required by this CV"
+run = "tlmgr install paracol relsize fontawesome silence background everypage"
+
+[tasks.build]
+description = "Build the CV PDF and remove intermediate build artifacts"
+run = "pdflatex main.tex && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls"
+
+[tasks.clean]
+description = "Remove the generated pdf"
+run = "rm -f *.pdf"
