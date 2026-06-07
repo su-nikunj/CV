@@ -2,8 +2,7 @@
 
 My CV made using LaTeX, forked and modified from the original work by Mateusz Baran.
 
-- Original repository: <https://github.com/mateuszbaransanok/BubbleCV>
-- Original library used: <https://github.com/toastytato/BubbleCV>
+Original repository: <https://github.com/mateuszbaransanok/BubbleCV>
 
 ## Steps to build
 
