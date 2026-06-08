@@ -115,6 +115,10 @@
 \setlength{\parindent}{0mm}                                 % no indent default
 \pagenumbering{gobble}                                      % disable page numbering
 
+\hyphenpenalty=10000                                        % disable hyphenation
+\exhyphenpenalty=10000                                      % disable hyphenation of hyphenated words
+\tolerance=500                                              % allow slightly loose lines without overfull boxes
+
 \usepackage{enumitem}
 \setlist[itemize]{noitemsep, nolistsep, leftmargin=*}       % default list style
 
