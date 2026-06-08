@@ -22,7 +22,7 @@
 %----------------------------------------------------------------------------------------
 \newcommand\cvheadermargin{5}
 \newcommand\cvtopmargin{10}
-\newcommand\cvbottommargin{10}
+\newcommand\cvbottommargin{7}
 \newcommand\cvleftmargin{35}
 \newcommand\cvrightmargin{10}
 
@@ -89,8 +89,8 @@
 %----------------------------------------------------------------------------------------
 % RESCALE
 %----------------------------------------------------------------------------------------
-\usepackage{fp} 
-\FPeval{\cvavatarradius}{\cvscale*\cvavatarradius}  
+\usepackage{fp}
+\FPeval{\cvavatarradius}{\cvscale*\cvavatarradius}
 \FPeval{\cvavatarborderwidth}{\cvscale*\cvavatarborderwidth}
 \FPeval{\cvmainspace}{\cvscale*\cvmainspace}
 \FPeval{\cvmainbubbleradius}{\cvscale*\cvmainbubbleradius}
@@ -205,7 +205,7 @@
 \NewDocumentEnvironment{cv}{O{} O{2} m m}{%
     \relscale{\cvscale}%
     \fontfamily{\cvfont}\selectfont%%
-    
+
     \vspace*{\cvheadermargin mm}%
     \vspace*{-\cvtopmargin mm}%
     \hspace{-\timelinespace mm}%
@@ -221,9 +221,9 @@
         \cvseparator[3]%
         \textscale{\cvheadersubtitlefontscale}{#4}%
     \end{minipage}%
-    
+
     \columnratio{\cvcolumnratio}%
-    
+
     \begin{paracol}{2}%
 }{%
     \end{paracol}%
@@ -373,7 +373,7 @@
 	\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}X}%
  		\textcolor{black}{\textbf{#1}} & \textcolor{cvcolor}{#2}%
 	\end{tabularx}%
-	
+
 	\begin{tikzpicture}[scale=1,rounded corners=\cvscale*0.5mm,very thin]%
 		\fill [cvlightcolor] (0,0) rectangle (\linewidth, 0.15*\cvscale);%
 		\fill [cvcolor] (0,0) rectangle (#3\linewidth, 0.15*\cvscale);%
