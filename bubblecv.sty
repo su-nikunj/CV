@@ -130,6 +130,7 @@
 \usepackage{ifthen}          % if then else
 \usepackage{tabularx}        % tabular for progress bar
 \usepackage{hyperref}        % hyper ref
+\usepackage{xurl}             % breakable URLs
 
 %----------------------------------------------------------------------------------------
 % COLUMNS
@@ -352,12 +353,12 @@
 % Parameter 3:              Content.
 \NewDocumentEnvironment{cvitem}{O{Circle} O{2.5} +b}{%
     \ifthenelse{\equal{\iscvsidebar}{1}}{%
-        \begin{minipage}{\cvscale\dimexpr#2mm\relax}%
-            \makebox(0, 0){\textcolor{cvcolor}{\fontsize{\cvscale\dimexpr#2mm\relax}{\cvscale\dimexpr#2mm\relax}\csname fa#1\endcsname}}%
+        \begin{minipage}[t]{\cvscale\dimexpr#2mm\relax}%
+            \vspace{0pt}\textcolor{cvcolor}{\fontsize{\cvscale\dimexpr#2mm\relax}{\cvscale\dimexpr#2mm\relax}\csname fa#1\endcsname}%
         \end{minipage}%
         \hspace{\cvsidebaroffset mm}%
-        \begin{minipage}{\dimexpr(\linewidth - \cvsidebaroffset mm - \cvscale\dimexpr#2mm\relax)}%
-            #3%
+        \begin{minipage}[t]{\dimexpr(\linewidth - \cvsidebaroffset mm - \cvscale\dimexpr#2mm\relax)}%
+            \vspace{0pt}#3%
         \end{minipage}%
         \par%
     }{%

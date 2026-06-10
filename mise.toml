@@ -4,7 +4,7 @@ perl = "latest"
 
 [tasks.tex-setup]
 description = "Install extra TeX packages required by this CV"
-run = "tlmgr install paracol relsize fontawesome silence background everypage"
+run = "tlmgr install paracol relsize fontawesome silence background everypage xurl"
 
 [tasks.build]
 description = "Build the CV PDF and remove intermediate build artifacts"
