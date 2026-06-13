@@ -8,11 +8,11 @@ run = "tlmgr install paracol relsize fontawesome silence background everypage xu
 
 [tasks.build]
 description = "Build the CV PDF and remove intermediate build artifacts"
-run = "pdflatex main.tex && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls"
+run = "pdflatex -jobname=CV main.tex && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls"
 
 [tasks.build-dev]
 description = "Build the CV PDF and keep the intermediate build artifacts"
-run = "pdflatex main.tex"
+run = "pdflatex -jobname=CV main.tex"
 
 [tasks.clean]
 description = "Remove the generated pdf"
