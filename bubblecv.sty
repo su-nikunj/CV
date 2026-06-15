@@ -79,8 +79,11 @@
 \definecolor{cvcolor}{RGB}{20, 20, 20}                      % main color
 \definecolor{cvbordercolor}{RGB}{255, 255, 255}             % border color
 \definecolor{cvavatarbordercolor}{RGB}{255, 255, 255}       % avatar border color
-\definecolor{cvtimelinecolor}{RGB}{0, 0, 0}                 % timeline color
+\definecolor{cvtimelinecolor}{RGB}{18, 80, 140}             % timeline color
 \definecolor{cvlightcolor}{RGB}{245, 245, 245}              % light color
+\definecolor{cvaccentsoft}{RGB}{230, 245, 255}             % soft highlight background
+\definecolor{cvaccentsky}{RGB}{0, 150, 200}                % sky blue accent
+\definecolor{cvboldaccent}{RGB}{18, 80, 140}               % deep teal-blue for highlights
 
 %========================================================================================
 % CONFIGURATION
@@ -248,12 +251,12 @@
         \hspace{-\cvmainbubbleradius mm}%
         \begin{minipage}{\dimexpr(\cvmainbubbleradius mm + \cvmainbubbleradius mm)}%
             \ifthenelse{\equal{#1}{}}%
-                {\protect\drawcircle{\cvmainbubbleradius}{\cvmainbubbleborderwidth}{cvcolor}{cvbordercolor}}%
-                {\protect\drawcircle[resources/#1][#2]{\cvmainbubbleradius}{\cvmainbubbleborderwidth}{cvcolor}{cvbordercolor}}%
+                {\protect\drawcircle{\cvmainbubbleradius}{\cvmainbubbleborderwidth}{cvboldaccent}{cvbordercolor}}%
+                {\protect\drawcircle[resources/#1][#2]{\cvmainbubbleradius}{\cvmainbubbleborderwidth}{cvboldaccent}{cvbordercolor}}%
         \end{minipage}%
         \hspace{\dimexpr(\timelinespace mm - \cvmainbubbleradius mm)}%
         \begin{minipage}{\linewidth}%
-            \textscale{\cvsectionfontscale}{\textbf{#3}}%
+            \textscale{\cvsectionfontscale}{\textcolor{cvboldaccent}{\textbf{#3}}}%
         \end{minipage}%
         \cvseparator%
     }{%
@@ -261,12 +264,12 @@
         \hspace{-\cvsidebarbubbleradius mm}%
         \begin{minipage}{\dimexpr(\cvsidebarbubbleradius mm + \cvsidebarbubbleradius mm)}%
             \protect\ifthenelse{\equal{#1}{}}%
-                {\drawcircle{\cvsidebarbubbleradius}{\cvsidebarbubbleborderwidth}{cvcolor}{cvbordercolor}}%
-                {\drawcircle[resources/#1][#2]{\cvsidebarbubbleradius}{\cvsidebarbubbleborderwidth}{cvcolor}{cvbordercolor}}%
+                {\drawcircle{\cvsidebarbubbleradius}{\cvsidebarbubbleborderwidth}{cvboldaccent}{cvbordercolor}}%
+                {\drawcircle[resources/#1][#2]{\cvsidebarbubbleradius}{\cvsidebarbubbleborderwidth}{cvboldaccent}{cvbordercolor}}%
         \end{minipage}%
         \hspace{\cvsidebaroffset mm}%
         \begin{minipage}{\dimexpr(\linewidth - \cvsidebarbubbleradius mm - \cvsidebaroffset mm)}%
-            \textscale{\cvsectionfontscale}{\textbf{#3}}%
+            \textscale{\cvsectionfontscale}{\textcolor{cvboldaccent}{\textbf{#3}}}%
         \end{minipage}%
         \cvseparator%
     }%
@@ -298,7 +301,7 @@
             \end{center}%
         \end{minipage}%
         \begin{minipage}{\dimexpr(\cveventbubbleradius mm + \cveventbubbleradius mm)}%
-            \protect\drawcircle{\cveventbubbleradius}{\cveventbubbleborderwidth}{cvcolor}{cvbordercolor}%
+            \protect\drawcircle{\cveventbubbleradius}{\cveventbubbleborderwidth}{cvboldaccent}{cvbordercolor}%
         \end{minipage}%
         \hspace{\dimexpr(\timelinespace mm - \cveventbubbleradius mm)}%
         \begin{minipage}[t]{\linewidth}%
@@ -367,6 +370,26 @@
 }{}%
 
 %----------------------------------------------------------------------------------------
+% CV HIGHLIGHT
+%----------------------------------------------------------------------------------------
+% Highlights a keyword with accent color and bold.
+% Parameter 1:              Keyword to highlight.
+\newcommand{\cvhl}[1]{\textcolor{cvboldaccent}{\textbf{#1}}}
+
+%----------------------------------------------------------------------------------------
+% CV BADGE
+%----------------------------------------------------------------------------------------
+% Renders a skill as a colored rounded badge.
+% Parameter 1:              Skill name.
+\newcommand{\cvbadge}[1]{%
+    \tikz[baseline]\node[fill=cvaccentsoft, draw=cvaccentsky,
+        rounded corners=1.0mm, line width=0.2mm,
+        inner xsep=2.0mm, inner ysep=0.8mm,
+        text=cvaccentsky, font=\small]{\textbf{#1}};%
+    \hspace{1.2mm}%
+}
+
+%----------------------------------------------------------------------------------------
 % CV SKILL
 %----------------------------------------------------------------------------------------
 % Renders a progress-bar to indicate a certain skill in percent.
@@ -376,12 +399,12 @@
 \newcommand{\cvskill}[3]{%
     \ifthenelse{\equal{\iscvsidebar}{1}}{%
 	\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}X}%
- 		\textcolor{black}{\textbf{#1}} & \textcolor{cvcolor}{#2}%
+ 		\textcolor{cvboldaccent}{\textbf{#1}} & \textcolor{cvboldaccent}{#2}%
 	\end{tabularx}%
 
 	\begin{tikzpicture}[scale=1,rounded corners=\cvscale*0.5mm,very thin]%
 		\fill [cvlightcolor] (0,0) rectangle (\linewidth, 0.15*\cvscale);%
-		\fill [cvcolor] (0,0) rectangle (#3\linewidth, 0.15*\cvscale);%
+		\fill [cvboldaccent] (0,0) rectangle (#3\linewidth, 0.15*\cvscale);%
   	\end{tikzpicture}%
 	\cvseparator[2]%
     }{%
