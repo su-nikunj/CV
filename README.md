@@ -7,8 +7,7 @@ Original repository: <https://github.com/mateuszbaransanok/BubbleCV>
 ## Steps to build
 
 - Install [mise](https://mise.jdx.dev/installing-mise.html).
-- Run `mise install`
-- Run `mise run tex-setup`
+- Run `mise install` (Optional. Running the next command will run this automatically)
 - Run `mise run build`
 
 ---
