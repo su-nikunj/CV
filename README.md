@@ -8,7 +8,14 @@ Original repository: <https://github.com/mateuszbaransanok/BubbleCV>
 
 - Install [mise](https://mise.jdx.dev/installing-mise.html).
 - Run `mise install` (Optional. Running the next command will run this automatically)
-- Run `mise run build`
+- Run `mise run build` to build all variants:
+  - `CV-xr.pdf` — XR/graphics variant (default)
+  - `CV-systems.pdf` — distributed systems / infrastructure variant
+  - `CV-security.pdf` — platform security variant
+- Or build a single variant: `mise run build:xr`, `mise run build:systems`, `mise run build:security`
+
+The variant is controlled by the `\cvvariant` macro and selects the profile text,
+research interests, work-experience emphasis, and project list.
 
 ---
 

@@ -3,13 +3,25 @@ tinytex = { version = "latest", postinstall = "tlmgr update --self && tlmgr inst
 perl = "latest"
 
 [tasks.build]
-description = "Build the CV PDF and remove intermediate build artifacts"
-run = "pdflatex -jobname=CV main.tex && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls"
+description = "Build all CV variants (xr, systems, security) and remove intermediate build artifacts"
+run = "mise run build:xr && mise run build:systems && mise run build:security"
+
+[tasks."build:xr"]
+description = "Build the XR variant (CV-xr.pdf)"
+run = 'pdflatex -jobname=CV-xr "\providecommand{\cvvariant}{xr}\input{main.tex}" && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls'
+
+[tasks."build:systems"]
+description = "Build the systems variant (CV-systems.pdf)"
+run = 'pdflatex -jobname=CV-systems "\providecommand{\cvvariant}{systems}\input{main.tex}" && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls'
+
+[tasks."build:security"]
+description = "Build the security variant (CV-security.pdf)"
+run = 'pdflatex -jobname=CV-security "\providecommand{\cvvariant}{security}\input{main.tex}" && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls'
 
 [tasks.build-dev]
-description = "Build the CV PDF and keep the intermediate build artifacts"
-run = "pdflatex -jobname=CV main.tex"
+description = "Build only the default (xr) variant and keep the intermediate build artifacts"
+run = 'pdflatex -jobname=CV-xr "\providecommand{\cvvariant}{xr}\input{main.tex}"'
 
 [tasks.clean]
-description = "Remove the generated pdf"
+description = "Remove the generated pdfs"
 run = "rm -f *.pdf"

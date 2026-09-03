@@ -1,44 +1,33 @@
 \documentclass{article}
 \usepackage{bubblecv}
 
+\providecommand{\cvvariant}{xr}
+
+\pagenumbering{arabic}
+\geometry{footskip=2mm}
+
+\newcommand{\ifvariant}[2]{\ifthenelse{\equal{\cvvariant}{#1}}{#2}{}}
+
+\newcommand{\cvprofile}[1]{\begingroup\hyphenpenalty=50\exhyphenpenalty=50\tolerance=2000#1\par\endgroup}
+
 \begin{document}
 
 
-\begin{cv}[avatar]{Nikunj Arora}{Software Engineer}
+\begin{cv}[avatar]{Nikunj Arora}{Software Engineer \,\textbullet\, M.Sc. Computer Science (AI)}
 
 
 \cvsection[summary]{Profile}  %-----------------------------------------------------------
 
-Software engineer experienced in low-level, XR, full-stack, and automation development.
-
-
-\cvsection[work]{Work experience}  %------------------------------------------------------
-
-\begin{cvevent}[2021][2026]
-    \cvname{Specialist Software Engineer}
-    \cvdescription{Qt Group, Oulu, Finland}
-    \begin{itemize}
-        \item Automated \cvhl{Android Automotive} \cvhl{AOSP} image builds via a build server, enabling fast image creation for internal use and client delivery.
-        \item Used \cvhl{Android} hidden APIs to enable activity-embedding beyond the public SDK, unlocking custom \cvhl{IVI} UI patterns.
-        \item Implemented the \cvhl{Media Sessions API} for \cvhl{Qt for Android Automotive}, enabling media playback control on an \cvhl{IVI}.
-        \item Created and maintain the \cvhl{Qt for Android Studio} plugin, letting developers embed \cvhl{QML} in native Android apps without leaving the IDE.
-        \item Maintain the companion \cvhl{Qt Gradle plugin} that automates \cvhl{QML} builds inside \cvhl{Android Studio}, removing hand-configured build steps.
-        \item Authored \cvhl{Claude}-compatible \cvhl{LLM} skills for \cvhl{Qt for VSCode} to guide new users through onboarding and cut time-to-first-build.
-    \end{itemize}
-\end{cvevent}
-
-\cvseparator[2]
-\begin{cvevent}[2017][2019]
-	\cvname{Game Developer}
-	\cvdescription{Sameer Hazari Studios Pvt. Ltd., New Delhi, India}
-	\begin{itemize}
-		\item Built the full-stack \cvhl{AWS} backend and frontend from scratch to underpin the studio's 3D commerce pipeline.
-		\item Automated \cvhl{3D} model conversion across formats (incl. \cvhl{USDZ} for Apple devices), replacing manual per-file conversion with a pipeline.
-		\item Built an \cvhl{iOS} \cvhl{AR} app and \cvhl{UE4} \cvhl{VR} experience for immersive 3D product previews in e-commerce.
-		\item Applied Google's style-transfer \cvhl{deep learning} model to auto-generate product art variations, expanding product catalogs automatically with existing artworks.
-		\item Built a browser-side \cvhl{3D} rendering pipeline that produces product videos client-side, removing the need for server-side rendering.
-	\end{itemize}
-\end{cvevent}
+\cvprofile{%
+\ifvariant{xr}{%
+Software engineer with 5+ years of experience across \cvhl{XR}, low-level platform, and full-stack development. M.Sc. in Computer Science (\cvhl{Artificial Intelligence}) with a peer-reviewed \cvhl{IEEE TVCG} publication on VR telepresence and self-avatars. Research interests: \cvhl{perception engineering}, embodied interaction, and real-time 3D systems.
+}
+\ifvariant{systems}{%
+Software engineer with 5+ years of experience building \cvhl{distributed} and low-level platform systems, from \cvhl{AOSP} build infrastructure to concurrency-heavy simulations. M.Sc. in Computer Science (\cvhl{Artificial Intelligence}) with a peer-reviewed \cvhl{IEEE TVCG} publication. Research interests: distributed systems, \cvhl{concurrency}, and large-scale build and tooling infrastructure.
+}
+\ifvariant{security}{%
+Software engineer with 5+ years of experience in \cvhl{low-level platform development}, including \cvhl{Android}/\cvhl{AOSP} internals, hidden API integration, and automotive \cvhl{IVI} systems. M.Sc. in Computer Science (\cvhl{Artificial Intelligence}) with a peer-reviewed \cvhl{IEEE TVCG} publication. Research interests: platform security, embedded and automotive systems, and secure software engineering.
+}}
 
 
 \cvsection[education]{Education}  %------------------------------------------------------
@@ -48,9 +37,117 @@ Software engineer experienced in low-level, XR, full-stack, and automation devel
     \cvdescription{University of Oulu, Finland}
     \begin{itemize}
         \item Specialized in \cvhl{Artificial Intelligence}.
-        \item Thesis: Augmenting Virtual Reality telepresence experience using self-avatar, extended to a \cvhl{publication}: \url{https://ieeexplore.ieee.org/document/9714051}
+        \item Thesis: \emph{Augmenting Virtual Reality Telepresence Experience Using Self-Avatar}, a pilot study extended into the \cvhl{publication} below.
     \end{itemize}
 \end{cvevent}
+
+
+\cvsection[publications]{Publications}  %------------------------------------------------
+
+\begin{cvevent}[2022]
+    \textbf{N. Arora}, M. Suomalainen, M. Pouke, E. G. Center, K. J. Mimnaugh, A. P. Chambers, S. Pouke, S. M. LaValle. \emph{Augmenting Immersive Telepresence Experience with a Virtual Body.} \textbf{IEEE Transactions on Visualization and Computer Graphics}, 28(5):2135--2145. \href{https://doi.org/10.1109/TVCG.2022.3150473}{DOI} \,\textbullet\, \href{https://arxiv.org/abs/2202.00900}{arXiv:2202.00900}
+\end{cvevent}
+
+
+\cvsection[cv]{Research experience}  %---------------------------------------------------
+
+\begin{cvevent}[2020]
+    \cvname{Research Assistant}
+    \cvdescription{Center for Ubiquitous Computing, University of Oulu, Finland}
+    \begin{itemize}
+        \item Built a \cvhl{Unity} crowd simulation for a \cvhl{telepresence robot} to navigate through in a virtual world.
+        \item Contributed to the \cvhl{HMD telepresence} study behind the TVCG publication: real-time 360\textdegree{} video streaming with a self-avatar embodiment, run as a 20-participant pilot extended to a pre-registered \cvhl{62-participant} study.
+    \end{itemize}
+\end{cvevent}
+
+\newpage
+
+\cvsection[work]{Work experience}  %------------------------------------------------------
+
+\newcommand{\qtbA}{\item Automated \cvhl{Android Automotive} \cvhl{AOSP} image builds via a build server, enabling fast image creation for internal use and client delivery.}
+\newcommand{\qtbB}{\item Used \cvhl{Android} hidden APIs to enable activity-embedding beyond the public SDK, unlocking custom \cvhl{IVI} UI patterns.}
+\newcommand{\qtbC}{\item Implemented the \cvhl{Media Sessions API} for \cvhl{Qt for Android Automotive}, enabling media playback control on an \cvhl{IVI}.}
+\newcommand{\qtbD}{\item Created and maintain the \cvhl{Qt for Android Studio} plugin, letting developers embed \cvhl{QML} in native Android apps without leaving the IDE.}
+\newcommand{\qtbE}{\item Maintain the companion \cvhl{Qt Gradle plugin} that automates \cvhl{QML} builds inside \cvhl{Android Studio}, removing hand-configured build steps.}
+\newcommand{\qtbF}{\item Authored \cvhl{Claude}-compatible \cvhl{LLM} skills for \cvhl{Qt for VSCode} to guide new users through onboarding and cut time-to-first-build.}
+
+\newcommand{\gdbA}{\item Built the full-stack \cvhl{AWS} backend and frontend from scratch to underpin the studio's \cvhl{3D} commerce pipeline.}
+\newcommand{\gdbB}{\item Automated \cvhl{3D} model conversion across formats (incl. \cvhl{USDZ} for Apple devices), replacing manual per-file conversion with a pipeline.}
+\newcommand{\gdbC}{\item Built an \cvhl{iOS} \cvhl{AR} app and \cvhl{UE4} \cvhl{VR} experience for immersive 3D product previews in e-commerce.}
+\newcommand{\gdbD}{\item Applied Google's style-transfer \cvhl{deep learning} model to auto-generate product art variations, expanding product catalogs automatically.}
+\newcommand{\gdbE}{\item Built a browser-side \cvhl{3D} rendering pipeline that produces product videos client-side, removing the need for server-side rendering.}
+
+\ifvariant{xr}{%
+\begin{cvevent}[2021][2026]
+    \cvname{Specialist Software Engineer}
+    \cvdescription{Qt Group, Oulu, Finland}
+    \begin{itemize}
+        \qtbB\qtbC\qtbD\qtbE\qtbA\qtbF
+    \end{itemize}
+\end{cvevent}
+}
+\ifvariant{systems}{%
+\begin{cvevent}[2021][2026]
+    \cvname{Specialist Software Engineer}
+    \cvdescription{Qt Group, Oulu, Finland}
+    \begin{itemize}
+        \qtbA\qtbE\qtbD\qtbB\qtbC\qtbF
+    \end{itemize}
+\end{cvevent}
+}
+\ifvariant{security}{%
+\begin{cvevent}[2021][2026]
+    \cvname{Specialist Software Engineer}
+    \cvdescription{Qt Group, Oulu, Finland}
+    \begin{itemize}
+        \qtbB\qtbC\qtbA\qtbD\qtbE\qtbF
+    \end{itemize}
+\end{cvevent}
+}
+
+\begin{cvevent}[2017][2019]
+    \cvname{Game Developer}
+    \cvdescription{Sameer Hazari Studios Pvt. Ltd., New Delhi, India}
+    \begin{itemize}
+        \gdbD\gdbC\gdbE\gdbB\gdbA
+    \end{itemize}
+\end{cvevent}
+
+
+\cvsection[target]{Projects}  %----------------------------------------------------------
+
+\begin{cvevent}
+    \cvname{SyncEngine}
+    \cvdescription{\href{https://github.com/su-nikunj/SyncEngine}{github.com/su-nikunj/SyncEngine}}
+    \cvhl{Kotlin} CLI simulating two-way synchronization between a central server and \cvhl{100k simulated devices} over a REST API, using concurrency.
+\end{cvevent}
+
+\ifvariant{xr}{%
+\begin{cvevent}
+    \cvname{Stereo-Image-ZNCC}
+    \cvdescription{\href{https://github.com/su-nikunj/Stereo-Image-ZNCC}{github.com/su-nikunj/Stereo-Image-ZNCC} \,\textbullet\, MSc course project}
+    \cvhl{C++} implementation of \cvhl{ZNCC} stereo correspondence to generate \cvhl{stereo 3D images} from image pairs.
+\end{cvevent}
+\begin{cvevent}
+    \cvname{OpenGL Demo}
+    \cvdescription{\href{https://github.com/su-nikunj/Opengl-Demo}{github.com/su-nikunj/Opengl-Demo} \,\textbullet\, MSc course project}
+    \cvhl{C++} \cvhl{OpenGL} renderer with a debugging inspector for real-time graphics experiments.
+\end{cvevent}
+}
+\ifvariant{systems}{%
+\begin{cvevent}
+    \cvname{Chip8Emulator}
+    \cvdescription{\href{https://github.com/su-nikunj/Chip8Emulator}{github.com/su-nikunj/Chip8Emulator}}
+    \cvhl{Java} emulator for the \cvhl{Chip-8} platform: CPU, memory, and the full instruction decode-execute loop.
+\end{cvevent}
+}
+\ifvariant{security}{%
+\begin{cvevent}
+    \cvname{Chip8Emulator}
+    \cvdescription{\href{https://github.com/su-nikunj/Chip8Emulator}{github.com/su-nikunj/Chip8Emulator}}
+    \cvhl{Java} emulator for the \cvhl{Chip-8} platform: CPU, memory, and the full instruction decode-execute loop.
+\end{cvevent}
+}
 
 
 \cvsidebar %-----------------------------------------------------------------------------
@@ -90,6 +187,13 @@ Software engineer experienced in low-level, XR, full-stack, and automation devel
 
 \cvsection[skills]{Skills}  %-----------------------------------------------------------
 
+\begin{cvitem}[Flask][3]
+    \cvhl{Research}\par
+    \cvbadge{Unity}\cvbadge{Unreal Engine 4}\par
+    \cvbadge{AR/VR}\cvbadge{Machine Learning}
+\end{cvitem}
+
+\cvseparator[2]
 \begin{cvitem}[Code][3]
     \cvhl{Languages}\par
     \cvbadge{C++}\cvbadge{Java}\cvbadge{Kotlin}\cvbadge{Python}\par
@@ -97,14 +201,9 @@ Software engineer experienced in low-level, XR, full-stack, and automation devel
 \end{cvitem}
 
 \cvseparator[2]
-\begin{cvitem}[Cube][3]
-    \cvhl{Frameworks}\par
-    \cvbadge{Qt}\cvbadge{Android}\cvbadge{iOS}\cvbadge{Unity}\cvbadge{Unreal Engine 4}
-\end{cvitem}
-
-\cvseparator[2]
 \begin{cvitem}[Wrench][3]
-    \cvhl{DevOps \& Tools}\par
+    \cvhl{Frameworks \& Tools}\par
+    \cvbadge{Qt}\cvbadge{Android}\cvbadge{iOS}\par
     \cvbadge{Linux}\cvbadge{AWS}\cvbadge{AI coding agents}
 \end{cvitem}
 
@@ -125,15 +224,8 @@ Software engineer experienced in low-level, XR, full-stack, and automation devel
 	\href{mailto:nicholas.bennett@qt.io}{nicholas.bennett@qt.io}
 \end{cvitem}
 
-\cvsection[target]{Projects}
-
-\begin{cvitem}
-	SyncEngine, a \cvhl{Kotlin} CLI simulating two-way sync between a central server and 100k simulated devices, via a dummy REST API in parallel using concurrency.
-\end{cvitem}
-
-\begin{cvitem}
-	Migrating my home server to \cvhl{Kubernetes} via a \cvhl{FluxCD} \cvhl{GitOps} workflow for version-controlled infrastructure.
-\end{cvitem}
+\vfill
+{\raggedleft\small\itshape Work experience continues on page 2 \,$\rightarrow$\par}
 
 \end{cv}
 
