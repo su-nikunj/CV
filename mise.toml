@@ -3,16 +3,16 @@ tinytex = { version = "latest", postinstall = "tlmgr update --self && tlmgr inst
 perl = "latest"
 
 [tasks.build]
-description = "Build all CV variants (xr, systems, security) and remove intermediate build artifacts"
-run = "mise run build:xr && mise run build:systems && mise run build:security"
+description = "Build all CV variants (xr, devxp, security) and remove intermediate build artifacts"
+run = "mise run build:xr && mise run build:devxp && mise run build:security"
 
 [tasks."build:xr"]
 description = "Build the XR variant (CV-xr.pdf)"
 run = 'pdflatex -jobname=CV-xr "\providecommand{\cvvariant}{xr}\input{main.tex}" && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls'
 
-[tasks."build:systems"]
-description = "Build the systems variant (CV-systems.pdf)"
-run = 'pdflatex -jobname=CV-systems "\providecommand{\cvvariant}{systems}\input{main.tex}" && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls'
+[tasks."build:devxp"]
+description = "Build the devxp variant (CV-devxp.pdf)"
+run = 'pdflatex -jobname=CV-devxp "\providecommand{\cvvariant}{devxp}\input{main.tex}" && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls'
 
 [tasks."build:security"]
 description = "Build the security variant (CV-security.pdf)"
