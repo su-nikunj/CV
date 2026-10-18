@@ -12,7 +12,8 @@ Original repository: <https://github.com/mateuszbaransanok/BubbleCV>
   - `CV-xr.pdf` — XR/graphics variant (default)
   - `CV-devxp.pdf` — developer experience / human aspects of software engineering variant
   - `CV-security.pdf` — platform security variant
-- Or build a single variant: `mise run build:xr`, `mise run build:devxp`, `mise run build:security`
+  - `CV.pdf` — academic CV following the [TENK Researcher's Curriculum Vitae Template](https://tenk.fi/en/advice-and-materials/template-researchers-curriculum-vitae), implemented with the [Research Council of Finland LaTeX template](https://www.aka.fi/globalassets/10rahoitus/ansioluettelot/cv-template_latex.tex)
+- Or build a single variant: `mise run build:xr`, `mise run build:devxp`, `mise run build:security`, `mise run build:tenk`
 
 The variant is controlled by the `\cvvariant` macro and selects the profile text,
 research interests, work-experience emphasis, and project list.

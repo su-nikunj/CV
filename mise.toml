@@ -1,10 +1,14 @@
 [tools]
-tinytex = { version = "latest", postinstall = "tlmgr update --self && tlmgr install paracol relsize fontawesome silence background everypage xurl" }
+tinytex = { version = "latest", postinstall = "tlmgr update --self && tlmgr install paracol relsize fontawesome silence background everypage xurl carlito eurosym" }
 perl = "latest"
 
 [tasks.build]
-description = "Build all CV variants (xr, devxp, security) and remove intermediate build artifacts"
-run = "mise run build:xr && mise run build:devxp && mise run build:security"
+description = "Build all CV variants (xr, devxp, security, tenk) and remove intermediate build artifacts"
+run = "mise run build:xr && mise run build:devxp && mise run build:security && mise run build:tenk"
+
+[tasks."build:tenk"]
+description = "Build the TENK/RCF variant (CV.pdf)"
+run = 'pdflatex -interaction=nonstopmode -jobname=CV tenk.tex && pdflatex -interaction=nonstopmode -jobname=CV tenk.tex && rm -f *.aux *.log *.out *.toc *.bbl *.bcf *.blg *.run.xml *.nav *.snm *.vrb *.synctex.gz *.fdb_latexmk *.fls'
 
 [tasks."build:xr"]
 description = "Build the XR variant (CV-xr.pdf)"

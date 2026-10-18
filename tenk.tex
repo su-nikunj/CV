@@ -1,0 +1,146 @@
+%%
+%%   CV following the TENK Researcher's Curriculum Vitae Template (2020),
+%%   implemented with the official LaTeX template of the Research Council
+%%   of Finland: https://www.aka.fi/globalassets/10rahoitus/ansioluettelot/cv-template_latex.tex
+%%   THE STYLE AND HEADERS HAVE BEEN PRESET ACCORDING TO THE RULES.
+%%
+\documentclass[a4paper,12pt]{article}
+
+% Language support (including Nordic letters)
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Math support
+\usepackage[intlimits]{amsmath}
+\usepackage{amsthm}
+
+% Symbol support
+\usepackage{amssymb}
+\usepackage{eurosym}
+
+% Enabling pdf
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+% Item list extras for reduced spacing between items
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Hyperlink support (only for external hyperlinks)
+\usepackage[implicit=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+}
+
+%-----------------------------------------------------
+% ACADEMY SETTINGS: DO NOT ALTER THESE SETTINGS!
+%-----------------------------------------------------
+
+% ONLY CALIBRI/CARLITO ARE ALLOWED AS FONT, FONT SIZE 12 PT DEFINED ABOVE. The font is used to ensure equal settings between LaTeX and Word templates.
+% Find the font package here: https://www.ctan.org/tex-archive/fonts/carlito
+\usepackage[sfdefault]{carlito}
+
+% LINE SPACING 1 SUPPORT AND SET SPACE
+\usepackage{setspace}
+\singlespacing
+
+% PAGE MARGIN SUPPORT AND SET PAGE MARGINS 20 MM
+\usepackage[left=20mm, top=20mm, bottom=20mm, right=20mm]{geometry}
+
+% SETTING SPACING FOR SECTION, SUBSECTION AND PARAGRAPH
+\usepackage{titlesec}
+\titleformat*{\section}{\bfseries}
+\titleformat*{\subsection}{\bfseries}
+\titlespacing{\section}{0 cm}{6pt}{0pt}
+\titlespacing{\subsection}{0 cm}{6pt}{0pt}
+\setlength{\parskip}{6pt}
+
+% ALIGNING TEXT TO LEFT
+\raggedright
+
+% SETS PAGE NUMBERS AND HEADER
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyfoot{}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\fancyplain{}{\thepage}({\pageref{lastpage}}) }
+
+%-----------------------------------------------------
+
+\begin{document}
+
+\section*{Personal details and date of CV}
+
+\begin{itemize}
+    \item Surname: Arora
+    \item First names: Nikunj
+    \item Researcher identifier: \href{https://orcid.org/0009-0000-7113-1196}{ORCID 0009-0000-7113-1196}
+    \item Date of CV: 18.10.2026
+\end{itemize}
+
+\section*{Degrees}
+
+\begin{itemize}
+    \item 06/2021: Master of Science, major subject Computer Science (specialisation in Artificial Intelligence), University of Oulu, Oulu, Finland. Thesis: \emph{Augmenting Virtual Reality Telepresence Experience Using Self-Avatar}.
+    \begin{itemize}
+        \item Contact details of the organisation granting the degree: P.O. Box 8000, FI-90014 University of Oulu, Finland (\href{https://www.oulu.fi/en}{www.oulu.fi/en})
+    \end{itemize}
+    \item 06/2017: Bachelor of Technology, Electronics and Communication Engineering, Guru Gobind Singh Indraprastha University, New Delhi, India.
+\end{itemize}
+
+\section*{Language skills}
+
+\begin{itemize}
+    \item Hindi: native
+    \item English: C2 (self-assessment, Europass scale)
+    \item Finnish: A1 (self-assessment, Europass scale)
+\end{itemize}
+
+\section*{Current employment}
+
+\begin{itemize}
+    \item 06/2021--05/2026: Specialist Software Engineer, Qt Group, Oulu, Finland (full-time). Software development for the Qt framework and developer tooling: authored Claude-compatible LLM skills to guide developers through onboarding with AI coding agents; created and maintained the Qt for Android Studio plugin and the companion Qt Gradle plugin; Android/AOSP platform work for automotive IVI systems, including hidden API integration, activity embedding, and the Media Sessions API for Qt for Android Automotive; automated Android Automotive AOSP image builds via a build server.
+\end{itemize}
+
+\section*{Previous work experience}
+
+\begin{itemize}
+    \item 2020: Research Assistant, Center for Ubiquitous Computing, University of Oulu, Finland. Built a Unity crowd simulation for a telepresence robot to navigate through in a virtual world. The work later evolved into the M.Sc. thesis, which focused on VR telepresence and self-avatar embodiment through a 20-participant pilot study with psychometric measures (presence, co-presence, embodiment) and real-time behavioural measures; the pilot was subsequently extended into the pre-registered 62-participant study published in IEEE TVCG (see Research output).
+    \item 2017--2019: Game Developer, Sameer Hazari Studios Pvt.\ Ltd., New Delhi, India (full-time). Built the full-stack AWS backend and frontend for a 3D commerce pipeline; automated 3D model conversion across formats (including USDZ for Apple devices); developed an iOS augmented reality app and Unreal Engine 4 virtual reality experiences for immersive 3D product previews; applied a deep learning style-transfer model to auto-generate product art variations; built a browser-side 3D rendering pipeline producing product videos client-side.
+\end{itemize}
+
+\newpage
+\section*{Research output}
+
+Publications (1):
+
+\begin{itemize}
+    \item N.~Arora, M.~Suomalainen, M.~Pouke, E.~G.~Center, K.~J.~Mimnaugh, A.~P.~Chambers, S.~Pouke, S.~M.~LaValle. \emph{Augmenting Immersive Telepresence Experience with a Virtual Body.} IEEE Transactions on Visualization and Computer Graphics, 28(5):2135--2145, 2022. \href{https://doi.org/10.1109/TVCG.2022.3150473}{DOI: 10.1109/TVCG.2022.3150473}
+\end{itemize}
+
+Methods, software, and tools developed:
+
+\begin{itemize}
+    \item Real-time 360\textdegree{} video streaming pipeline with self-avatar embodiment for an HMD telepresence experiment (Unity).
+    \item Python scripts for automating quantitative data collection from the raw accelerometer and gyroscope signals of the HMD and controllers during the telepresence experiment.
+\end{itemize}
+
+\section*{Scientific and societal impact}
+
+\begin{itemize}
+    \item Open science: preprint of the peer-reviewed telepresence study made openly available (\href{https://arxiv.org/abs/2202.00900}{arXiv:2202.00900}).
+\end{itemize}
+
+\section*{Other}
+
+\begin{itemize}
+    \item Open-source projects (\href{https://github.com/su-nikunj}{github.com/su-nikunj}): SyncEngine, a Kotlin CLI simulating two-way synchronisation between a central server and 100\,000 simulated devices over a REST API using concurrency; Stereo-Image-ZNCC, a C++ stereo correspondence implementation; an OpenGL renderer with a debugging inspector for real-time graphics experiments.
+    \item Other expertise: programming in Python, C\#, C++, Kotlin, Java, JavaScript, and TypeScript; development with Unity and Unreal Engine 4; machine learning; AWS; AI-assisted software development tooling. Interest in human--AI interaction, including trust and privacy in AI-mediated interaction and the human factors of immersive and AI-driven systems.
+\end{itemize}
+
+%% Page counter for header
+\label{lastpage}
+
+\end{document}
